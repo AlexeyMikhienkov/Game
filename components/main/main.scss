@@ -1,0 +1,78 @@
+/*@media (max-width: 767px) {
+  body {
+    margin: 0 auto;
+    display: block;
+    min-width: 288px;
+
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+ */
+
+body {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: #f7f5fa;
+}
+
+.main {
+  position: relative;
+  margin: 0 auto;
+  width: 760px;
+  height: 700px;
+
+  border: 5px solid yellow;
+}
+
+.main__popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+
+  background-image: linear-gradient(
+                  271deg
+          ,rgba(168,129,253,.53),#5900b1)!important;
+  background-color: transparent;
+}
+
+.tutorial {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: 50%;
+
+  border: 5px solid red;
+}
+
+.main__popup-title {
+  margin: 0 auto;
+
+  font-family: Montserrat,Open Sans,sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.main__popup-subtitle {
+  font-family: Montserrat,Open Sans,sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+
+  color: #ffffff;
+}
+
+.tutorial__title {
+  font-weight: 900;
+  line-height: 26px;
+  color: #8f4af9;
+}
+
