@@ -1,5 +1,45 @@
-.tutorial__title {
-  font-weight: 900;
-  line-height: 26px;
-  color: #8f4af9;
+.tutorial {
+  &__title {
+    display: block;
+    margin: 20px 0 10px 0;
+    font-weight: 900;
+    font-size: 21px;
+    font-family: "Open Sans", sans-serif;
+    color: #8f4af9;
+  }
+
+  &__items {
+    list-style-type: none;
+    width: 522px;
+    height: 200px;
+  }
+
+  &__item {
+    margin: 0 0 20px 0;
+  }
+
+
+  &__item-title {
+    display: block;
+    font-family: Montserrat, "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    margin: 5px 0;
+  //  line-height: 20px;
+  }
+
+  &__item-subtitle {
+    display: block;
+    margin: 10px 0;
+
+    font-family: Montserrat, "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 20px;
+  }
 }
+
+
+

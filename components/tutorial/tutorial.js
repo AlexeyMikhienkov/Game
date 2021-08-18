@@ -4,7 +4,7 @@ import {tutorial} from "../../constants/copyright";
 export default function Tutorial() {
     return (
         <>
-            <h3 className={"tutorial__title"}>Тренирует</h3>
+            <h3 className={"tutorial__title"}>Тренирует:</h3>
             <ul className={"tutorial__items"}>
                 <Items />
             </ul>
