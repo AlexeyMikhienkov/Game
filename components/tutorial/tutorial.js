@@ -1,14 +1,14 @@
 import React from "react";
 import {tutorial} from "../../constants/copyright";
 
-export default function Tutorial() {
+export default function Tutorial({className}) {
     return (
-        <>
+        <div className={`tutorial ${className ?? ""}`}>
             <h3 className={"tutorial__title"}>Тренирует:</h3>
             <ul className={"tutorial__items"}>
-                <Items />
+                <Items/>
             </ul>
-        </>
+        </div>
     )
 }
 
