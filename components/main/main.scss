@@ -106,5 +106,11 @@ body {
     background: #6039aa;
     font: 16px "Open Sans", sans-serif;
   }
+
+  &__button:hover {
+    transform: translateY(-2px);
+    //border-bottom: 2px solid #dedede;
+    background: #8061bb;
+  }
 }
 
