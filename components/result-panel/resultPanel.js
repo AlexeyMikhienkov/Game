@@ -1,7 +1,7 @@
 import React from "react";
 import {results} from "../../constants/copyright";
 
-export default function Statistics() {
+export default function ResultPanel() {
     return (
         <div className={"result-panel"}>
             <ul>
@@ -10,7 +10,7 @@ export default function Statistics() {
         </div>
     )
 }
-//Todo: переименовать в result-panel, добавить возмоэность добавления main__res-panel,
+//Todo: добавить возмоэность добавления main__res-panel,
 // resItem вынести, значения статистики передать в props
 
 function ResultItems() {
