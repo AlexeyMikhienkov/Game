@@ -1,31 +1,23 @@
 import React from "react";
 import {results} from "../../constants/copyright";
+import ResultItem from "./resultItem";
 
-export default function ResultPanel() {
+export default function ResultPanel({statistics_values}) {
     return (
         <div className={"result-panel"}>
             <ul>
-                <ResultItems/>
+                <ResultItems values={statistics_values}/>
             </ul>
         </div>
     )
 }
-//Todo: добавить возмоэность добавления main__res-panel,
-// resItem вынести, значения статистики передать в props
+//Todo: добавить возможность добавления main__res-panel,
+// значения статистики передать в props
 
-function ResultItems() {
-    return results.map(item => (
-        <ResultItem key={item} description={item}/>
-    ))
+function ResultItems({values}) {
+    return results.map(item => {
+        const index = results.indexOf(item);
+        return <ResultItem key={item} description={item} value={values[index]}/>
+    })
 }
 
-function ResultItem(props) {
-    const description = props.description;
-
-    return (
-        <li className={"result-panel__item-container"}>
-            <p className={"result-panel__description"}>{description}</p>
-            <p className={"result-panel__value"}>Значение</p>
-        </li>
-    )
-}
