@@ -5,7 +5,7 @@ import TutorialItem from "./tutorialItem";
 export default function Tutorial({className}) { // className = main__tutorial
     return (
         <div className={`tutorial ${className ?? ""}`}>
-            <h3 className={"tutorial__title"}>Тренирует:</h3>
+            <h3 className={"tutorial__title"}>{tutorial.title}</h3>
             <ul className={"tutorial__items"}>
                 <TutorialItems/>
             </ul>

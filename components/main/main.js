@@ -1,4 +1,5 @@
 import React from "react";
+import {header, buttonText} from "../../constants/copyright";
 
 export default function Main({className, children, onAction, modificator}) {//TODO: передать game-wrapper__main, добавить модификатор main_result
     /*
@@ -15,7 +16,7 @@ export default function Main({className, children, onAction, modificator}) {//TO
             <Header/>
             {children}
             <div className={"main__button-wrapper"}>
-                <button className={"main__button"}>ДАЛЕЕ</button>
+                <button className={"main__button"}>{buttonText}</button>
             </div>
         </div>
     )
@@ -26,8 +27,8 @@ function Header() {
         <>
             <div className={"main__header"}>
                 <div className={"main__container"}>
-                    <h2 className={"main__title"}>Найди число</h2>
-                    <p className={"main__subtitle"}>Тренажер на внимание</p>
+                    <h2 className={"main__title"}>{header.title}</h2>
+                    <p className={"main__subtitle"}>{header.subtitle}</p>
                 </div>
             </div>
         </>

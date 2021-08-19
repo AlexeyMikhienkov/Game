@@ -1,5 +1,5 @@
 export const tutorial = {
-    title: "test",
+    title: "Тренирует:",
     items: [
         {
             title: "Произвольное внимание",
@@ -23,3 +23,11 @@ export const results = {
     trainer:"ИП тренажера",
     createdNeurons:"Создано нейронов"
 };
+
+export const header = {
+    title: "Найди число",
+    subtitle: "Тренажер на внимание",
+    resultTitle: "Ваши результаты"
+};
+
+export const buttonText = "ДАЛЕЕ";
