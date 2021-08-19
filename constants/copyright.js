@@ -17,17 +17,21 @@ export const tutorial = {
 };
 
 export const results = {
-    currentResult:"Текущий результат",
-    rightAnswers:"Верных ответов",
-    accuracy:"Точность ответов",
-    trainer:"ИП тренажера",
-    createdNeurons:"Создано нейронов"
+    currentResult: "Текущий результат",
+    rightAnswers: "Верных ответов",
+    accuracy: "Точность ответов",
+    trainer: "ИП тренажера",
+    createdNeurons: "Создано нейронов"
 };
 
 export const header = {
-    title: "Найди число",
-    subtitle: "Тренажер на внимание",
-    resultTitle: "Ваши результаты"
+    base: {
+        title: "Найди число",
+        subtitle: "Тренажер на внимание",
+    },
+    result: {
+        title: "Ваши результаты",
+    }
 };
 
 export const buttonText = "ДАЛЕЕ";

@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Tutorial from "../components/tutorial/tutorial";
 import ResultPanel from "../components/result-panel/resultPanel";
 import {getStatisticData} from "../utils/statisticsHelpers";
+import {header} from "../constants/copyright";
 
 const statistics = {
     currentResult: 42,
@@ -16,17 +17,24 @@ const statistics = {
 };
 
 export default function Home() {
-    const [isResult, setResult] = useState(true);
-
+    const [isResult, setResult] = useState(false);
+/*
     return (
         <div>
-            <Main className={"game-wrapper__main"} modificator={isResult ? "result" : ""} onAction={() => setResult(result => !result)}>
+            <Main content={header[isResult?"result":"base"]} className={`game-wrapper__main ${isResult ? "game-wrapper__main_result" : ""}`}
+                  modificator={isResult && "result"} onAction={() => setResult(result => !result)}>
                 {isResult ?
                     <ResultPanel className={"main__result-panel"} statistics={getStatisticData(statistics)}/> :
                     <Tutorial className={"main__tutorial"}/>}
             </Main>
         </div>
     )
+
+ */
+    return (
+        <div></div>
+    )
+
 }
 // result === true -> result-panel
 // result === false -> tutorial

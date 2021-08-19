@@ -12,8 +12,6 @@ body {
   width: 718px;
   height: 528px;
 
-  border: 2px solid red;
-
   &__header {
     position: absolute;
     display: flex;
@@ -105,7 +103,6 @@ body {
 
   &__button:hover {
     transform: translateY(-2px);
-    //border-bottom: 2px solid #dedede;
     background: #8061bb;
   }
 
@@ -122,25 +119,35 @@ body {
     height: 200px;
   }
 
-  &__button-wrapper{
+  &__button-wrapper {
     position: absolute;
-    top:435px;
+    top: 435px;
     width: 100%;
 
   }
+
   &_result {
+    .main__title {
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-family: Montserrat, Open Sans, sans-serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .main__header {
+      margin: 30px 24px;
+      width: 580px;
+      height: 110px;
+    }
+
     .main__header:before {
       background-color: rgba(0, 0, 0, .6);
       background-image: none;
     }
-
-    //  background-color: black;
-
   }
-
-
 }
-
-
-
 
