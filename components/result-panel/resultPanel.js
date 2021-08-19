@@ -1,12 +1,11 @@
 import React from "react";
-import {results} from "../../constants/copyright";
 import ResultItem from "./resultItem";
 
-export default function ResultPanel({className, statistics_values}) { //className = main__result-panel
+export default function ResultPanel({className, statistics}) { //className = main__result-panel
     return (
         <div className={`result-panel ${className ?? ""}`}>
-            <ul>
-                <ResultItems values={statistics_values}/>
+            <ul className={"result-panel__items"}>
+                <ResultItems values={statistics}/>
             </ul>
         </div>
     )
@@ -15,9 +14,8 @@ export default function ResultPanel({className, statistics_values}) { //classNam
 // значения статистики передать в props
 
 function ResultItems({values}) {
-    return results.map(item => {
-        const index = results.indexOf(item);
-        return <ResultItem key={item} description={item} value={values[index]}/>
+    return values.map(({text, value}, index) => {
+        return <ResultItem key={index} description={text} value={value}/>
     })
 }
 

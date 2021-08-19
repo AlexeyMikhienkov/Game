@@ -16,10 +16,10 @@ export const tutorial = {
     ]
 };
 
-export const results = [
-    "Текущий результат",
-    "Верных ответов",
-    "Точность ответов",
-    "ИП тренажера",
-    "Создано нейронов"
-];
+export const results = {
+    currentResult:"Текущий результат",
+    rightAnswers:"Верных ответов",
+    accuracy:"Точность ответов",
+    trainer:"ИП тренажера",
+    createdNeurons:"Создано нейронов"
+};

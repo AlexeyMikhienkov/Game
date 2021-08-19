@@ -10,11 +10,13 @@ export default function Main({className, children, onAction, modificator}) {//TO
     return (
         <div className={
             modificator === "" ?
-                `main ${className??""}` :
-                `main ${className??""} main_${modificator} ${className??""}_${modificator}`}>
+                `main ${className ?? ""}` :
+                `main ${className ?? ""} main_${modificator} ${className ?? ""}_${modificator}`}>
             <Header/>
             {children}
-            <button className={"main__button"}>ДАЛЕЕ</button>
+            <div className={"main__button-wrapper"}>
+                <button className={"main__button"}>ДАЛЕЕ</button>
+            </div>
         </div>
     )
 }
