@@ -1,8 +1,17 @@
 import React from "react";
 
 export default function Main({className, children, onAction, modificator}) {//TODO: передать game-wrapper__main, добавить модификатор main_result
+    /*
+    modificator === "" ?
+    className = main game-wrapper__main :
+    className = main game-wrapper__main main_result game-wrapper__main_result
+     */
+
     return (
-        <div className={`main ${className??""}`}>
+        <div className={
+            modificator === "" ?
+                `main ${className??""}` :
+                `main ${className??""} main_${modificator} ${className??""}_${modificator}`}>
             <Header/>
             {children}
             <button className={"main__button"}>ДАЛЕЕ</button>

@@ -9,15 +9,16 @@ export default function Home() {
 
     return (
         <div>
-            <Main modificator={isResult ? "result" : "tutorial"} onAction={() => setResult(result => !result)}>
-                {isResult ? <ResultPanel statistics_values={statistics}/> : <Tutorial className={"main__tutorial"}/>}
+            <Main className={"game-wrapper__main"} modificator={isResult ? "result" : ""} onAction={() => setResult(result => !result)}>
+                {isResult ?
+                    <ResultPanel className={"main__result-panel"} statistics_values={statistics}/> :
+                    <Tutorial className={"main__tutorial"}/>}
             </Main>
         </div>
     )
 }
 // result === true -> result-panel
 // result === false -> tutorial
-
 
 /*
    const statistics = {

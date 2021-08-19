@@ -1,33 +1,24 @@
 import React from "react";
 import {tutorial} from "../../constants/copyright";
+import TutorialItem from "./tutorialItem";
 
-export default function Tutorial({className}) {
+export default function Tutorial({className}) { // className = main__tutorial
     return (
         <div className={`tutorial ${className ?? ""}`}>
             <h3 className={"tutorial__title"}>Тренирует:</h3>
             <ul className={"tutorial__items"}>
-                <Items/>
+                <TutorialItems/>
             </ul>
         </div>
     )
 }
 
-function Items() {
+function TutorialItems() {
     return tutorial.items.map(item => {
         return (
-            <Item className={"tutorial__item"} key={item.title} title={item.title} subtitle={item.subtitle}/>
+            <TutorialItem className={"tutorial__item"} key={item.title} title={item.title} subtitle={item.subtitle}/>
         )
     })
 }
 
-function Item(props) {
-    const title = props.title;
-    const subtitle = props.subtitle;
 
-    return (
-        <li className={"tutorial__item"}>
-            <h3 className={"tutorial__item-title"}>{title}</h3>
-            <p className={"tutorial__item-subtitle"}>{subtitle}</p>
-        </li>
-    )
-}
