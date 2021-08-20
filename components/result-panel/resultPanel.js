@@ -10,8 +10,6 @@ export default function ResultPanel({className, statistics}) { //className = mai
         </div>
     )
 }
-//Todo: добавить возможность добавления main__result-panel,
-// значения статистики передать в props
 
 function ResultItems({values}) {
     return values.map(({text, value}, index) => {

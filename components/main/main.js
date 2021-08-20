@@ -1,7 +1,7 @@
 import React from "react";
 import {header, buttonText} from "../../constants/copyright";
 
-export default function Main({className, content, children, onAction, modificator}) {//TODO: передать game-wrapper__main, добавить модификатор main_result
+export default function Main({className, content, children, onAction, modificator}) {
     /*
     modificator === "" ?
     className = main game-wrapper__main :
@@ -33,6 +33,3 @@ function Header({content: {title: titleTxt, subtitle: subtitleTxt}}) {
         </>
     );
 }
-
-//TODO: Timer props: кол-во времени, вызов колбэка, когда время закончилось
-// если проп времени поменялся во время отсчета, считать заново
