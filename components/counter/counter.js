@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import isFunction from "../../utils/isFunction";
+import PropTypes from 'prop-types'
 
-export default function Counter({className, start, onTimeout, isReset, afterReset}) {
+function Counter({className, start, onTimeout, isReset, afterReset}) {
     const [seconds, setSeconds] = useState(start);
     const [timeoutId, setTimeoutId] = useState(null);
 
@@ -44,7 +45,12 @@ function updateTimer(timeoutId, setSeconds, setTimeoutId, start) {
     setTimeoutId(intervalId);
 }
 
-//TODO: Timer props: кол-во времени, вызов колбэка, когда время закончилось
-// если проп времени поменялся во время отсчета, считать заново
-// передать доп компонент, который будет показывать, что нужно начать отсчет заново
+Counter.propTypes = {
+    className: PropTypes.String,
+    start: PropTypes.number,
+    onTimeout: PropTypes.func,
+    isReset: PropTypes.bool,
+    afterReset: PropTypes.func
+};
 
+export default Counter

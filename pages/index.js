@@ -6,6 +6,7 @@ import {getStatisticData} from "../utils/statisticsHelpers";
 import {header} from "../constants/copyright";
 import Counter from "../components/counter/counter";
 import {consumeIterator} from "next/dist/build/babel/loader/util";
+import Block from "../components/block/block";
 
 const statistics = {
     currentResult: 42,
@@ -33,7 +34,7 @@ export default function Home() {
         </div>
     )
 
- */
+
     const [time, setTime] = useState(10);
     const [isReset, setIsReset] = useState(false);
 
@@ -53,6 +54,12 @@ export default function Home() {
                      isReset={isReset} afterReset={() => setIsReset(false)}/>
         </>
     )
+
+     */
+
+    let withFinger = true;
+
+    return <Block className={"grid__block"} withFinger={withFinger}/>
 }
 
 
