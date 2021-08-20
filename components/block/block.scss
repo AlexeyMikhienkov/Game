@@ -1,0 +1,34 @@
+.block {
+  position: relative;
+  margin: 50px;
+  background-color: #f28e37;
+
+  &__number {
+    position: absolute;
+    margin: auto;
+    padding: 11px 30px;
+
+    text-align: center;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  &__finger {
+    position: absolute;
+    left: 20px;
+    top: 60px;
+
+    width: 105px;
+    height: 130px;
+
+    background-color: red;
+    background-image: url("../../public/images/finger.svg");
+    background-size: contain;
+
+    border: 2px solid blue;
+  }
+
+}
