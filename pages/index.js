@@ -35,25 +35,22 @@ export default function Home() {
 
  */
     const [time, setTime] = useState(10);
-    const [update, setUpdate] = useState(false);
-
-    useEffect(() => {
-        console.log("set false");
-        setUpdate(false);
-    });
+    const [isReset, setIsReset] = useState(false);
 
     function handleClick() {
-        console.log("click");
         setTime(20);
-        setUpdate(true);
+    }
+
+    function handleResetClick() {
+        setIsReset(true);
     }
 
     return (
         <>
             <button style={{zIndex: 100, background: "red"}} onClick={() => handleClick()}>Кнопка</button>
-
-            <Counter className={"game-wrapper__counter"} start={time} update={update}
-                     onTimeout={() => console.log("timeout")}/>
+            <button style={{zIndex: 100, background: "yellow"}} onClick={() => handleResetClick()}>RESET</button>
+            <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => console.log("timeout")}
+                     isReset={isReset} afterReset={() => setIsReset(false)}/>
         </>
     )
 }
