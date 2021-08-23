@@ -68,5 +68,5 @@ export default function Home() {
     // undefined - без анимации
 
     return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
-                  blockText={blockText} blockColor={blockColor} animation={"rotate"}/>
+                  blockText={blockText} blockColor={blockColor} animation={"flick"}/>
 }

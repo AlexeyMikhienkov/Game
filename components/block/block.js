@@ -14,25 +14,23 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
     </div>) : null;
 
     return (
-        <button className={`block ${className ?? ""} ${animation && animation !== "rotate" ? `block_${animation}` : ""}`} onClick={onAction}
-                style={{backgroundColor: blockColor}}>
-            <p className={`block__number ${animation === "rotate" ? `block__number_${animation}` : ""}`}>{blockText}</p>
+        <button
+            className={`block ${className ?? ""} ${animation && animation !== "rotate" ? `block_${animation}` : ""}`}
+            onClick={onAction}
+            style={{backgroundColor: blockColor}}>
+            <p className={`block__number ${animation && animation === "rotate" ? `block__number_${animation}` : ""}`}>{blockText}</p>
             {finger}
         </button>
     )
 }
 
-Counter.propTypes = {
+Block.propTypes = {
     className: PropTypes.String,
     withFinger: PropTypes.bool,
+    onAction: PropTypes.func,
+    blockText: PropTypes.number,
+    blockColor: PropTypes.string,
+    blockAnimation: PropTypes.string,
 };
 
 export default Block
-
-//TODO: block <button>, а не <div> +
-// колбэк на клик +
-// сделать finger некликабельным +
-// передать blockText, цвет блока и анимацию в пропсах тестовые значения
-// реализовать ховер +
-// добавить картинку через img +
-// добавить к картинке alt +
