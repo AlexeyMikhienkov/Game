@@ -58,32 +58,15 @@ export default function Home() {
 
      */
 
-    let withFinger = true;
+    let withFinger = false;
     const blockText = 150;
     const blockColor = "#f28e37";
 
-    // angle - поворот
-    // blick - мигание
+    // rotate - поворот
+    // blink - мигание
     // flick - мерцание
-
-    const animation = {
-        textAnimation: {
-            angle: false,
-            blink: false,
-            flick: false
-        },
-        blockAnimation: {
-            blink: false,
-            flick: false
-        }
-    };
+    // undefined - без анимации
 
     return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
-                  blockText={blockText} blockColor={blockColor} animation={animation}/>
+                  blockText={blockText} blockColor={blockColor} animation={"rotate"}/>
 }
-
-/*
-мигание текста/блока (больше меньше)
-мерцание текста/блока (пропал появился)
-изменение угла текста
- */

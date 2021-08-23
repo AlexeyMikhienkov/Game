@@ -5,11 +5,19 @@
 
   background-color: #f28e37;
   border: none;
-
+  
   cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 30%);
+  }
+
+  &_blink {
+    animation: blink 450ms ease-in alternate infinite;
+  }
+
+  &_flick {
+    animation: flick 500ms ease-in alternate infinite;
   }
 
   &__number {
@@ -20,6 +28,10 @@
     font-size: 50px;
     font-weight: 600;
     color: #ffffff;
+
+    &_rotate {
+      animation: rotate 300ms ease-in alternate infinite;
+    }
   }
 
   &__finger {
@@ -33,5 +45,50 @@
 
     pointer-events: none;
     background-color: red;
+  }
+}
+
+@keyframes flick {
+  from {
+    background-color: #f28e37;
+  }
+  to {
+    background-color: #ffffff;
+  }
+}
+
+@keyframes blink {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.875);
+  }
+  50% {
+    transform: scale(0.75);
+  }
+  75% {
+    transform: scale(0.625);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-20deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(20deg);
   }
 }

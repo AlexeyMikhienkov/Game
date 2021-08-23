@@ -14,8 +14,9 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
     </div>) : null;
 
     return (
-        <button className={`block ${className ?? ""}`} onClick={onAction} style={{backgroundColor: blockColor}}>
-            <p className={"block__number"}>{blockText}</p>
+        <button className={`block ${className ?? ""} ${animation && animation !== "rotate" ? `block_${animation}` : ""}`} onClick={onAction}
+                style={{backgroundColor: blockColor}}>
+            <p className={`block__number ${animation === "rotate" ? `block__number_${animation}` : ""}`}>{blockText}</p>
             {finger}
         </button>
     )
