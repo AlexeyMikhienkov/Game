@@ -1,15 +1,21 @@
 .block {
   position: relative;
   margin: 50px;
+  padding: 0;
+
   background-color: #f28e37;
+  border: none;
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 30%);
+  }
 
   &__number {
-    position: absolute;
     margin: auto;
-    padding: 11px 30px;
 
     text-align: center;
-
     font-family: "Open Sans", sans-serif;
     font-size: 50px;
     font-weight: 600;
@@ -18,17 +24,14 @@
 
   &__finger {
     position: absolute;
-    left: 20px;
+    margin: 0 auto;
     top: 60px;
+    left: 24.5px;
 
-    width: 105px;
-    height: 130px;
+    width: 96px;
+    height: 103px;
 
+    pointer-events: none;
     background-color: red;
-    background-image: url("../../public/images/finger.svg");
-    background-size: contain;
-
-    border: 2px solid blue;
   }
-
 }

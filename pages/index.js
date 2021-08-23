@@ -7,6 +7,7 @@ import {header} from "../constants/copyright";
 import Counter from "../components/counter/counter";
 import {consumeIterator} from "next/dist/build/babel/loader/util";
 import Block from "../components/block/block";
+import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 
 const statistics = {
     currentResult: 42,
@@ -58,9 +59,31 @@ export default function Home() {
      */
 
     let withFinger = true;
+    const blockText = 150;
+    const blockColor = "#f28e37";
 
-    return <Block className={"grid__block"} withFinger={withFinger}/>
+    // angle - поворот
+    // blick - мигание
+    // flick - мерцание
+
+    const animation = {
+        textAnimation: {
+            angle: false,
+            blink: false,
+            flick: false
+        },
+        blockAnimation: {
+            blink: false,
+            flick: false
+        }
+    };
+
+    return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
+                  blockText={blockText} blockColor={blockColor} animation={animation}/>
 }
 
-
-
+/*
+мигание текста/блока (больше меньше)
+мерцание текста/блока (пропал появился)
+изменение угла текста
+ */

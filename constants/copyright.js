@@ -36,4 +36,3 @@ export const header = {
 
 export const buttonText = "ДАЛЕЕ";
 
-export const blockText = "150";
