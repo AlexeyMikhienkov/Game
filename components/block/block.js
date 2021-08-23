@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Counter from "../counter/counter";
 import Image from "next/image";
 
 function Block({className, withFinger, onAction, blockText, blockColor, animation}) {

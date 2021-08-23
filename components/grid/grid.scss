@@ -1,7 +1,27 @@
 .grid {
+  width: 485px;
+  height: 230px;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  //  margin: 0 auto;
+  //  position: relative;
+    align-items: center;
+
+  }
 
   &__block {
-    width: 145px;
-    height: 80px;
+    display: inline-block;
+    position: relative;
+    float: none;
+    overflow: hidden;
+    flex-grow: 1;
+    margin: 5px;
+
+    height: 95%;
+    width: auto;
   }
 }

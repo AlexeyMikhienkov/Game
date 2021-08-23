@@ -8,6 +8,7 @@ import Counter from "../components/counter/counter";
 import {consumeIterator} from "next/dist/build/babel/loader/util";
 import Block from "../components/block/block";
 import {loadGetInitialProps} from "next/dist/shared/lib/utils";
+import Grid from "../components/grid/grid";
 
 const statistics = {
     currentResult: 42,
@@ -21,6 +22,7 @@ const statistics = {
 };
 
 export default function Home() {
+
     /*
     const [isResult, setResult] = useState(false);
 
@@ -57,7 +59,7 @@ export default function Home() {
     )
 
      */
-
+    /*
     let withFinger = false;
     const blockText = 150;
     const blockColor = "#f28e37";
@@ -67,6 +69,12 @@ export default function Home() {
     // flick - мерцание
     // undefined - без анимации
 
+
     return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
                   blockText={blockText} blockColor={blockColor} animation={"flick"}/>
+
+     */
+
+    return <Grid className={"game__grid"} rows={3} columns={4} withFinger={false} onAction={() => console.log("Click")}
+                 blockText={230} blockColor={"#f28e37"} animation={undefined}/>
 }
