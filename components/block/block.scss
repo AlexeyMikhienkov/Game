@@ -1,14 +1,42 @@
 .block {
   position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
   padding: 0;
 
-  background-color: #f28e37;
   border: none;
-
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 30%);
+ // &:hover {
+//  }
+
+  &_size-1 {
+    .block__number {
+      line-height: 180%;
+      font-size: 50px;
+    }
+  }
+
+  &_size-2 {
+    .block__number {
+      line-height: 145%;
+      font-size: 40px;
+    }
+  }
+
+  &_size-3 {
+    .block__number {
+      line-height: 145%;
+      font-size: 30px;
+    }
+  }
+
+  &_size-4 {
+    .block__number {
+      line-height: 130%;
+      font-size: 25px;
+    }
   }
 
   &_blink {
@@ -24,12 +52,17 @@
 
     text-align: center;
     font-family: "Open Sans", sans-serif;
-    font-size: 50px;
     font-weight: 600;
     color: #ffffff;
 
+    width: 100%;
+
     &_rotate {
       animation: rotate 300ms ease-in alternate infinite;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 30%);
     }
   }
 

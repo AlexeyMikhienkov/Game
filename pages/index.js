@@ -9,6 +9,7 @@ import {consumeIterator} from "next/dist/build/babel/loader/util";
 import Block from "../components/block/block";
 import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 import Grid from "../components/grid/grid";
+import {settings} from "../constants/constants";
 
 const statistics = {
     currentResult: 42,
@@ -75,6 +76,6 @@ export default function Home() {
 
      */
 
-    return <Grid className={"game__grid"} rows={3} columns={4} withFinger={false} onAction={() => console.log("Click")}
+    return <Grid className={"game__grid"} rows={settings.rows} columns={settings.columns} withFinger={false} onAction={() => console.log("Click")}
                  blockText={230} blockColor={"#f28e37"} animation={undefined}/>
 }
