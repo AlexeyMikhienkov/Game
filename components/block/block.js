@@ -12,11 +12,14 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
         />
     </div>) : null;
 
+    //className = grid__block block_size-1    ${animation && animation !== "rotate" ? `block_${animation}` : ""}
+
     return (
         <button
-            className={`block ${className ?? ""} ${animation && animation !== "rotate" ? `block_${animation}` : ""}`}
-            onClick={onAction}>
-            <p className={`block__number ${animation && animation === "rotate" ? `block__number_${animation}` : ""}`} style={{backgroundColor: blockColor}}>{blockText}</p>
+            className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}
+            onClick={onAction} style={{backgroundColor: blockColor}}>
+            <p className={`block__number `}
+            >{blockText}</p>
             {finger}
         </button>
     )

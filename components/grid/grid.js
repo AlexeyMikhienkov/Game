@@ -1,10 +1,42 @@
 import PropTypes from "prop-types";
-import React, {useState} from "react";
+import React from "react";
 import Block from "../block/block";
 
-function Grid({className, rows, columns, withFinger, onAction, blockText, blockColor, blockAnimation}) {
-    let size = 0;
+export default function Grid({className, grid, size, onAction}) {
+    const field = grid.map((arr, index)=>{
+        const columns = arr.map(({number, color, animation, finger, colIndex})=>{
+            return (
+                <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={finger}
+                       onAction={onAction} blockText={number} blockColor={color} animation={animation} />
+            )
+        });
+        return (
+                <div className={"grid__row"} key={index} style={{height: 210 / grid.length}}>
+                    {columns}
+                </div>
+        )
+    });
 
+    return (
+        <div className={`grid ${className ?? ""}`}>
+            {field}
+        </div>
+    )
+}
+
+/*
+Grid.PropTypes = {
+    className: PropTypes.string,
+    grid: PropTypes.array,
+    size: PropTypes.number,
+    onAction: PropTypes.func
+};
+
+ */
+
+
+
+    /*
     if (rows === 2 && columns === 3)
         size = 1;
     else if (rows === 3 && columns === 4)
@@ -13,6 +45,8 @@ function Grid({className, rows, columns, withFinger, onAction, blockText, blockC
         size = 3;
     else if (rows === 5 && columns === 5)
         size = 4;
+
+
 
     return (
         <div className={`grid ${className ?? ""}`}>
@@ -34,7 +68,7 @@ function RowsArr(rows, columns, size) {
     }
 
     return arr;
-} //TODO: в этом методе неправильно передается 210 (как статический параметр)
+}
 
 function ColumnsArr(columns, size) {
     let arr = [];
@@ -50,20 +84,7 @@ function ColumnsArr(columns, size) {
     return arr;
 }
 
-Grid.PropTypes = {
-    className: PropTypes.string,
-    rows: PropTypes.number,
-    columns: PropTypes.number,
-    withFinger: PropTypes.bool,
-    onAction: PropTypes.func,
-    blockText: PropTypes.number,
-    blockColor: PropTypes.string,
-    blockAnimation: PropTypes.string,
-};
 
-export default Grid
-
-//TODO: правильно передать пропы в Block
-// что делать, если размер не подходит ни под один формат?
+     */
 
 // 2 3, 3 4, 4 4, 5 5 _size-1, _size-2, _size-3, _size-4

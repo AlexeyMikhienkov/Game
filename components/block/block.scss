@@ -2,40 +2,20 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  height: 90%;
 
   padding: 0;
 
   border: none;
   cursor: pointer;
 
- // &:hover {
-//  }
-
-  &_size-1 {
-    .block__number {
-      line-height: 180%;
-      font-size: 50px;
-    }
+  &_flick {
+    animation: flick 500ms ease-in alternate infinite;
   }
 
-  &_size-2 {
+  &_rotate {
     .block__number {
-      line-height: 145%;
-      font-size: 40px;
-    }
-  }
-
-  &_size-3 {
-    .block__number {
-      line-height: 145%;
-      font-size: 30px;
-    }
-  }
-
-  &_size-4 {
-    .block__number {
-      line-height: 130%;
-      font-size: 25px;
+      animation: rotate 300ms ease-in alternate infinite;
     }
   }
 
@@ -43,8 +23,24 @@
     animation: blink 450ms ease-in alternate infinite;
   }
 
-  &_flick {
-    animation: flick 500ms ease-in alternate infinite;
+  &_size-1 {
+    font-size: 50px;
+  }
+
+  &_size-2 {
+    font-size: 35px;
+  }
+
+  &_size-3 {
+    font-size: 26px;
+  }
+
+  &_size-4 {
+    font-size: 20px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 30%);
   }
 
   &__number {
@@ -56,14 +52,6 @@
     color: #ffffff;
 
     width: 100%;
-
-    &_rotate {
-      animation: rotate 300ms ease-in alternate infinite;
-    }
-
-    &:hover {
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 30%);
-    }
   }
 
   &__finger {
@@ -81,11 +69,12 @@
 }
 
 @keyframes flick {
-  from {
-    background-color: #f28e37;
+  0% {
+    opacity: 0;
   }
-  to {
-    background-color: #ffffff;
+
+  100% {
+    opacity: 1;
   }
 }
 

@@ -1,9 +1,17 @@
 export const settings = {
-    rows: 2,
-    columns: 3
+    rows: 4,
+    columns: 4
 };
 
 export const sizes = {
-  rows: 2,
-  columns: 3
+
 };
+
+export const level = [
+    {
+        size: 1,
+        rows: 1,
+        columns: 2,
+        animations:[],
+    }
+]

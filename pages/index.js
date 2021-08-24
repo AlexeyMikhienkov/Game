@@ -70,12 +70,34 @@ export default function Home() {
     // flick - мерцание
     // undefined - без анимации
 
-
     return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
                   blockText={blockText} blockColor={blockColor} animation={"flick"}/>
 
      */
 
-    return <Grid className={"game__grid"} rows={settings.rows} columns={settings.columns} withFinger={false} onAction={() => console.log("Click")}
-                 blockText={230} blockColor={"#f28e37"} animation={undefined}/>
+    const size = 2;
+    const grid = [
+        [
+            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
+            {number: 523, color: "#5a05f0", animation: "flick", finger: false},
+            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
+
+        ],
+        [
+            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
+            {number: 523, color: "#fa350f", animation: "flick", finger: false},
+            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
+
+        ],
+        [
+            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
+            {number: 523, color: "#fa350f", animation: "flick", finger: false},
+            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
+
+        ],
+    ];
+
+    return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
 }
+
+//TODO: функция принимает level, возвращает grid, random with seed
