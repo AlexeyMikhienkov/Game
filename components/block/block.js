@@ -12,8 +12,6 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
         />
     </div>) : null;
 
-    //className = grid__block block_size-1    ${animation && animation !== "rotate" ? `block_${animation}` : ""}
-
     return (
         <button
             className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}

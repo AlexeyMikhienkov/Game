@@ -10,6 +10,9 @@ import Block from "../components/block/block";
 import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 import Grid from "../components/grid/grid";
 import {settings} from "../constants/constants";
+import {levels} from "../constants/constants";
+import {createRandomGrid} from "../utils/createRandomGrid";
+
 
 const statistics = {
     currentResult: 42,
@@ -59,8 +62,6 @@ export default function Home() {
         </>
     )
 
-     */
-    /*
     let withFinger = false;
     const blockText = 150;
     const blockColor = "#f28e37";
@@ -73,31 +74,17 @@ export default function Home() {
     return <Block className={"grid__block"} withFinger={withFinger} onAction={() => console.log("Click")}
                   blockText={blockText} blockColor={blockColor} animation={"flick"}/>
 
+
+    return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
      */
 
-    const size = 2;
-    const grid = [
-        [
-            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
-            {number: 523, color: "#5a05f0", animation: "flick", finger: false},
-            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
-
-        ],
-        [
-            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
-            {number: 523, color: "#fa350f", animation: "flick", finger: false},
-            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
-
-        ],
-        [
-            {number: 123, color: "#95c84d", animation: "rotate", finger: false},
-            {number: 523, color: "#fa350f", animation: "flick", finger: false},
-            {number: 523, color: "#fa27ff", animation: "flick", finger: false},
-
-        ],
-    ];
+    const level = 6;
+    const size = levels[level].size;
+    const grid = createRandomGrid(levels[level]);
+    console.log(grid);
 
     return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
 }
 
-//TODO: функция принимает level, возвращает grid, random with seed
+
+
