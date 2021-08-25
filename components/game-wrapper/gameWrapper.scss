@@ -1,18 +1,43 @@
+body {
+  background-color: #f7f5fa;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 .game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  margin: 0 auto;
+  top: 100px;
+
+  width: 718px;
+  height: 573px;
+  background-color: #ffffff;
 
   &__main {
 
     &_result {
-      width: 632px;
-      height: 528px;
+      @include size(632px, 528px);
     }
   }
 
   &__counter {
-    width: 632px;
-    height: 528px;
+    @include size(632px, 528px);
   }
 
+  &__game {
+    margin: 0 auto;
+
+    @include size(632px, 528px);
+  }
 
 }
 
+//TODO: вынести параметры width и height в переменные (или миксин)
+// где записать body?

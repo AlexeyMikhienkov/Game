@@ -16,15 +16,14 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
         <button
             className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}
             onClick={onAction} style={{backgroundColor: blockColor}}>
-            <p className={`block__number `}
-            >{blockText}</p>
+            <p className={`block__number `}>{blockText}</p>
             {finger}
         </button>
     )
 }
 
 Block.propTypes = {
-    className: PropTypes.String,
+    className: PropTypes.any,
     withFinger: PropTypes.bool,
     onAction: PropTypes.func,
     blockText: PropTypes.number,

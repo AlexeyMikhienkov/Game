@@ -36,3 +36,4 @@ export const header = {
 
 export const buttonText = "ДАЛЕЕ";
 
+export const description = "Найдите указанное число";

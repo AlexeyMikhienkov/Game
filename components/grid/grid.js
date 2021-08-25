@@ -4,7 +4,8 @@ import Block from "../block/block";
 
 function Grid({className, grid, size, onAction}) {
     const field = grid.map((arr, index)=>{
-        const columns = arr.map(({number, color, animation, finger, colIndex})=>{
+        const columns = arr.map(({number, color, animation, finger}, colIndex)=>{
+            console.log(colIndex);
             return (
                 <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={finger}
                        onAction={onAction} blockText={number} blockColor={color} animation={animation} />
@@ -24,7 +25,7 @@ function Grid({className, grid, size, onAction}) {
     )
 }
 
-Grid.PropTypes = {
+Grid.propTypes = {
     className: PropTypes.string,
     grid: PropTypes.array,
     size: PropTypes.number,
