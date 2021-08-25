@@ -5,7 +5,6 @@ import Block from "../block/block";
 function Grid({className, grid, size, onAction}) {
     const field = grid.map((arr, index)=>{
         const columns = arr.map(({number, color, animation, finger}, colIndex)=>{
-            console.log(colIndex);
             return (
                 <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={finger}
                        onAction={onAction} blockText={number} blockColor={color} animation={animation} />
