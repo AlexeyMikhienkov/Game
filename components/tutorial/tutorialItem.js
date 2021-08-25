@@ -1,8 +1,6 @@
 import React from "react";
 
-export default function TutorialItem(props) {
-    const title = props.title;
-    const subtitle = props.subtitle;
+export default function TutorialItem({title, subtitle}) {
 
     return (
         <li className={"tutorial__item"}>

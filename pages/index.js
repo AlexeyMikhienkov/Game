@@ -14,6 +14,7 @@ import {levels} from "../constants/constants";
 import {createRandomGrid} from "../utils/createRandomGrid";
 import Game from "../components/game/game";
 import GameWrapper from "../components/game-wrapper/gameWrapper";
+import Element from "../components/element/element";
 
 
 const statistics = {
@@ -88,9 +89,9 @@ export default function Home() {
     console.log(grid);
 
     return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
-
      */
 
     return <GameWrapper className={"game-wrapper"} />
+   // return <Element className={"info__element"} title={"Уровень"} subtitle={"1-9"}/>
 }
 

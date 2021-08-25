@@ -2,7 +2,7 @@ import React from "react";
 import {tutorial} from "../../constants/copyright";
 import TutorialItem from "./tutorialItem";
 
-export default function Tutorial({className}) { // className = main__tutorial
+export default function Tutorial({className}) {
     return (
         <div className={`tutorial ${className ?? ""}`}>
             <h3 className={"tutorial__title"}>{tutorial.title}</h3>

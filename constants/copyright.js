@@ -16,6 +16,23 @@ export const tutorial = {
     ]
 };
 
+export const elementInfo = {
+    items: [
+        {
+            title: "Время",
+            subtitle: "00:50"
+        },
+        {
+            title: "Уровень",
+            subtitle: "1-9"
+        },
+        {
+            title: "Очки",
+            subtitle: "0"
+        },
+    ]
+};
+
 export const results = {
     currentResult: "Текущий результат",
     rightAnswers: "Верных ответов",

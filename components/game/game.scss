@@ -1,13 +1,46 @@
 .game {
   background-color: #4db8ec;
 
+  &_tutorial {
+
+    cursor: pointer;
+
+    .block:hover {
+      box-shadow: none;
+    }
+
+    .game__grid {
+      margin: 10px auto;
+    }
+
+    .game__task {
+      margin: 70px auto 0;
+    }
+
+    .block {
+      opacity: 0.5;
+    }
+  }
+
+  &__continue {
+    margin: 20px auto 0;
+
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    height: 38px;
+    color: #ffffff;
+
+    text-align: center;
+    width: 160px;
+  }
+
   &__task {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     margin: 70px auto 30px;
-
 
     width: 485px;
     height: 102px;

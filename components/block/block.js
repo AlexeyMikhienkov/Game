@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 
 function Block({className, withFinger, onAction, blockText, blockColor, animation}) {
+
     const finger = withFinger ? (<div className={"block__finger"}>
         <Image
             src={"/../public/images/finger.svg"}
@@ -16,7 +17,7 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
         <button
             className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}
             onClick={onAction} style={{backgroundColor: blockColor}}>
-            <p className={`block__number `}>{blockText}</p>
+            <p className={`block__number`}>{blockText}</p>
             {finger}
         </button>
     )

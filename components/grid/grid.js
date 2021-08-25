@@ -3,17 +3,19 @@ import React from "react";
 import Block from "../block/block";
 
 function Grid({className, grid, size, onAction}) {
-    const field = grid.map((arr, index)=>{
-        const columns = arr.map(({number, color, animation, finger}, colIndex)=>{
+    console.log(grid);
+
+    const field = grid.map((arr, index) => {
+        const columns = arr.map(({number, color, animation, withFinger}, colIndex) => {
             return (
-                <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={finger}
-                       onAction={onAction} blockText={number} blockColor={color} animation={animation} />
+                <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={withFinger}
+                       onAction={onAction} blockText={number} blockColor={color} animation={animation}/>
             )
         });
         return (
-                <div className={"grid__row"} key={index} style={{height: 210 / grid.length}}>
-                    {columns}
-                </div>
+            <div className={"grid__row"} key={index} style={{height: 210 / grid.length}}>
+                {columns}
+            </div>
         )
     });
 

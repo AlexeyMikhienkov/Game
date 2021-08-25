@@ -77,3 +77,27 @@ export const levels = [
     },
 ];
 
+export const tutorialGrid = [
+    [
+        {number: 75, color: colors[1], animation: undefined, withFinger: true},
+        {number: 1, color: colors[3], animation: undefined},
+        {number: 35, color: colors[0], animation: undefined}
+    ],
+    [
+        {number: null, color: colors[2], animation: undefined},
+        {number: 885, color: colors[2], animation: undefined},
+        {number: 40, color: colors[4], animation: undefined}
+    ]
+];
+
+export const tutorialValue = 75;
+
+export const continueText = "Нажмите на экран, чтобы продолжить";
+
+
+export const tutorialData = {
+    value: tutorialValue,
+    color: colors[4],
+    grid: tutorialGrid,
+    size: 1
+};

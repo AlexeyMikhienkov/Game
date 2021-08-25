@@ -1,17 +1,18 @@
 import Game from "../game/game";
 import React from "react";
-import {colors, seed} from "../../constants/constants";
-import RNG from "../../utils/rng";
 //TODO: добавить уровень, передавать его в Game
 // как только в game новый уровень, в game генерируется новый grid
 
 export default function GameWrapper({className}) {
-    let level = 3;
+    let level = 0;
     level = Math.min(Math.max(level, 0), 8);
 
     return (
         <div className={className ?? ""}>
-            <Game className={"game-wrapper__game"} lvl={level} />
+            <Game className={"game-wrapper__game"} lvl={level} isTutorial={true}/>
         </div>
-        )
+    )
 }
+
+//TODO: убрать opacity у блока 75 
+// вытащить палец

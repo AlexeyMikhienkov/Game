@@ -1,38 +1,37 @@
 import Grid from "../grid/grid";
 import React, {useState, useEffect} from "react";
-import {colors, levels, seed} from "../../constants/constants";
-import {description} from "../../constants/copyright";
+import {colors, continueText, levels, seed, tutorialData} from "../../constants/constants";
 import {createRandomGrid} from "../../utils/createRandomGrid";
 import RNG from "../../utils/rng";
 import GameTask from "./gameTask";
 
-export default function Game({className, lvl}) {
-    const [data, setData] = useState(generateLevelData(lvl));
-    const value = generateTaskValue(data.grid);
+export default function Game({className, lvl, isTutorial}) {
+
+    const [data, setData] = useState(generateLevelData(lvl, isTutorial));
 
     useEffect(() =>
-        setData(generateLevelData(lvl)), [lvl]
+        setData(generateLevelData(lvl, isTutorial)), [lvl]
     );
 
     return (
-        <div className={`game ${className ?? ""}`} style={{backgroundColor: colors[data.color]}}>
-            <GameTask value={value} />
+        <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} style={{backgroundColor: data.color}}>
+            <GameTask value={isTutorial ? tutorialData.value : generateTaskValue(data.grid)}/>
             <Grid className={"game__grid"} grid={data.grid} size={data.size} onAction={() => console.log("Click")}/>
+            {isTutorial ? <p className={"game__continue"}>{continueText}</p> : ""}
         </div>
-    )
+    );
 }
 
-function generateLevelData(lvl) {
+function generateLevelData(lvl, isTutorial) {
     const rng = new RNG(seed);
     const colorIndex = rng.nextRange(0, colors.length);
 
-    return {
+    return isTutorial ? tutorialData : {
         size: levels[lvl].size,
         color: colorIndex,
         grid: createRandomGrid(levels[lvl])
     }
 }
-
 
 function generateTaskValue(grid) {
     const numbers = [];
@@ -48,4 +47,3 @@ function generateTaskValue(grid) {
 
     return numbers[numIndex];
 }
-

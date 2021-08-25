@@ -26,7 +26,6 @@
   &_size-1 {
     font-size: 50px;
     width: 152px;
-    height: 90%;
   }
 
   &_size-2 {
@@ -62,14 +61,13 @@
   &__finger {
     position: absolute;
     margin: 0 auto;
-    top: 60px;
+    top: 65px;
     left: 24.5px;
 
     width: 96px;
     height: 103px;
 
     pointer-events: none;
-    background-color: red;
   }
 }
 
