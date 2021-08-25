@@ -78,9 +78,9 @@ export default function Home() {
     return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
      */
 
-    const level = 6;
-    const size = levels[level].size;
-    const grid = createRandomGrid(levels[level]);
+    const level = 9;
+    const size = levels[level - 1].size;
+    const grid = createRandomGrid(levels[level - 1]);
     console.log(grid);
 
     return <Grid className={"game__grid"} grid={grid} size={size} onAction={() => console.log("Click")}/>
