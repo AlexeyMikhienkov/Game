@@ -94,7 +94,6 @@ export const tutorialValue = 75;
 
 export const continueText = "Нажмите на экран, чтобы продолжить";
 
-
 export const tutorialData = {
     value: tutorialValue,
     color: colors[4],

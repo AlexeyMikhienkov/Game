@@ -6,7 +6,7 @@ function Block({className, withFinger, isTutorial, onAction, blockText, blockCol
 
     const finger = withFinger ? (<div className={"block__finger"}>
         <Image
-            src={"/../public/images/finger.svg"}
+            src={"/images/finger.svg"}
             alt={"Палец-указатель на блок"}
             width={96}
             height={103}

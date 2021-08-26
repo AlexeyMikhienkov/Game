@@ -1,3 +1,7 @@
+#__next {
+
+}
+
 body {
   display: block;
   width: 100%;
@@ -6,11 +10,13 @@ body {
   background-color: #f7f5fa;
 }
 
+//TODO: поднять main к верху контейнера game-wrapper
+
 .main {
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   width: 718px;
-  height: 528px;
+  height: 573px;
 
   &__header {
     position: absolute;

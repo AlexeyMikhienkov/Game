@@ -3,7 +3,6 @@ import React from "react";
 import Block from "../block/block";
 
 function Grid({className, grid, size, isTutorial, onAction}) {
-    console.log(grid);
 
     const field = grid.map((arr, index) => {
         const columns = arr.map(({number, color, animation, withFinger}, colIndex) => {

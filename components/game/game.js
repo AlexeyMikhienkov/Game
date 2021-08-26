@@ -5,7 +5,7 @@ import {createRandomGrid} from "../../utils/createRandomGrid";
 import RNG from "../../utils/rng";
 import GameTask from "./gameTask";
 
-export default function Game({className, lvl, isTutorial}) {
+export default function Game({className, lvl, isTutorial, onAction}) {
 
     const [data, setData] = useState(generateLevelData(lvl, isTutorial));
 
@@ -14,7 +14,7 @@ export default function Game({className, lvl, isTutorial}) {
     );
 
     return (
-        <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} style={{backgroundColor: data.color}}>
+        <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} onClick={onAction} style={{backgroundColor: data.color}}>
             <GameTask value={isTutorial ? tutorialData.value : generateTaskValue(data.grid)}/>
             <Grid className={"game__grid"} grid={data.grid} size={data.size} isTutorial={isTutorial} onAction={() => console.log("Click")}/>
             {isTutorial ? <p className={"game__continue"}>{continueText}</p> : ""}
