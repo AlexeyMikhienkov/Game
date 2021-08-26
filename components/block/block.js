@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import {checkAnswer} from "../game/game";
 
-function Block({className, withFinger, isTutorial, onAction, blockText, blockColor, animation}) {
+function Block({className, withFinger, isTutorial, value, blockText, blockColor, animation, level, setLevel, setPage}) {
 
     const finger = withFinger ? (<div className={"block__finger"}>
         <Image
@@ -15,8 +16,10 @@ function Block({className, withFinger, isTutorial, onAction, blockText, blockCol
 
     return (
         <button
-            className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}
-            onClick={onAction} style={{backgroundColor: blockColor, opacity: `${!withFinger && isTutorial ? 0.5 : 1}`}}>
+            className={`block ${className ?? ""} ${animation ? `block_${animation}` : ""}`}
+            onClick={() => {
+                if (!isTutorial) checkAnswer(blockText, value, level, setLevel, setPage)
+            }} style={{backgroundColor: blockColor, opacity: `${!withFinger && isTutorial ? 0.5 : 1}`}}>
             <p className={`block__number`}>{blockText}</p>
             {finger}
         </button>

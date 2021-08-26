@@ -46,11 +46,9 @@ function updateTimer(timeoutId, setSeconds, setTimeoutId, start) {
 }
 
 Counter.propTypes = {
-    className: PropTypes.String,
+    className: PropTypes.any,
     start: PropTypes.number,
     onTimeout: PropTypes.func,
-    isReset: PropTypes.bool,
-    afterReset: PropTypes.func
 };
 
 export default Counter

@@ -34,40 +34,43 @@ export default function GameWrapper({className}) {
     const [page, setPage] = useState("main");
     const [level, setLevel] = useState(0);
 
-    useEffect(() => {
-   //     setLevel(Math.min(Math.max(level, 0), 8));
-    }, [page]);
-
     return (
         <div className={className ?? ""}>
-            {returnPage(page, setPage, level, time)}
+            {returnPage(page, setPage, level, setLevel, time)}
         </div>
     )
 }
 
-function returnPage(page, setPage, level, time) {
+function returnPage(page, setPage, level, setLevel, time) {
+
     switch (page) {
         case "tutorial":
-            return <Game className={"game-wrapper__game"} isTutorial={true} lvl={level} onAction={() => setPage("counter")}/>;
+            return <Game className={"game-wrapper__game"} isTutorial={true} lvl={level}
+                         onAction={() => setPage("counter")}/>;
         case "game":
-            return <Game className={"game-wrapper__game"} isTutorial={false} lvl={level}/>;
+            return <Game className={"game-wrapper__game"} isTutorial={false} lvl={level} setLevel={setLevel}
+                         setPage={setPage}/>;
         case "main":
             return <Main content={header["base"]}
-                         className={`game-wrapper__main`} onAction={() => setPage("tutorial")}>
+                         className={`game-wrapper__main`} onAction={() => {
+                console.log("set tutorial");
+                setPage("tutorial");
+            }}>
                 <Tutorial className={"main__tutorial"}/>
             </Main>;
         case "result":
             return <Main content={header["result"]}
                          className={`game-wrapper__main game-wrapper__main_result`}
-                         modificator={"result"}>
+                         modificator={"result"} onRepeat={() => {
+                setLevel(0);
+                setPage("main")
+            }}>
                 <ResultPanel className={"main__result-panel"} statistics={getStatisticData(statistics)}/>
             </Main>;
         case "counter":
             return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => setPage("game")}/>;
     }
 }
-
-//TODO: куда деть функции counter handleClick и handleResetClick ?
 
 /*
 main / result:

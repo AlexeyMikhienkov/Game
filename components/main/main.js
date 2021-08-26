@@ -1,14 +1,14 @@
 import React from "react";
 import {header, buttonText} from "../../constants/copyright";
 
-export default function Main({className, content, children, onAction, modificator}) {
+export default function Main({className, content, children, onAction, modificator, onRepeat}) {
 
     return (
         <div className={`main ${className ?? ""} ${modificator ? `main_${modificator}` : ""} `}>
             <Header content={content}/>
             {children}
             <div className={"main__button-wrapper"}>
-                <button className={"main__button"} onClick={onAction}>{buttonText}</button>
+                <button className={"main__button"} onClick={modificator ? onRepeat : onAction}>{buttonText}</button>
             </div>
         </div>
     )

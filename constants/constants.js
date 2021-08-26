@@ -1,7 +1,5 @@
 export const colors = ["#8e3dcb", "#f28e37", "#94c94d", "#fc73b0", "#4db8ec"];
 
-export const seed = 120;
-
 export const levels = [
     { // level 1
         size: 1,

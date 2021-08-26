@@ -17,3 +17,6 @@ RNG.prototype.nextRange = function(start, end) {
     let randomUnder1 = this.nextInt() / this.m;
     return start + Math.floor(randomUnder1 * rangeSize);
 };
+
+export const seed = 28;
+export const rng = new RNG(seed);
