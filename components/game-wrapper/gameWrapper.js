@@ -1,7 +1,5 @@
 import Game from "../game/game";
 import React from "react";
-//TODO: добавить уровень, передавать его в Game
-// как только в game новый уровень, в game генерируется новый grid
 
 export default function GameWrapper({className}) {
     let level = 0;
@@ -14,5 +12,3 @@ export default function GameWrapper({className}) {
     )
 }
 
-//TODO: убрать opacity у блока 75 
-// вытащить палец

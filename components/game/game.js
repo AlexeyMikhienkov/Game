@@ -16,7 +16,7 @@ export default function Game({className, lvl, isTutorial}) {
     return (
         <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} style={{backgroundColor: data.color}}>
             <GameTask value={isTutorial ? tutorialData.value : generateTaskValue(data.grid)}/>
-            <Grid className={"game__grid"} grid={data.grid} size={data.size} onAction={() => console.log("Click")}/>
+            <Grid className={"game__grid"} grid={data.grid} size={data.size} isTutorial={isTutorial} onAction={() => console.log("Click")}/>
             {isTutorial ? <p className={"game__continue"}>{continueText}</p> : ""}
         </div>
     );

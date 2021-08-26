@@ -2,11 +2,6 @@ import React from "react";
 import {header, buttonText} from "../../constants/copyright";
 
 export default function Main({className, content, children, onAction, modificator}) {
-    /*
-    modificator === "" ?
-    className = main game-wrapper__main :
-    className = main game-wrapper__main main_result game-wrapper__main_result
-     */
 
     return (
         <div className={`main ${className ?? ""} ${modificator ? `main_${modificator}` : ""} `}>

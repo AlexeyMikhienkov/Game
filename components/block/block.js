@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 
-function Block({className, withFinger, onAction, blockText, blockColor, animation}) {
+function Block({className, withFinger, isTutorial, onAction, blockText, blockColor, animation}) {
 
     const finger = withFinger ? (<div className={"block__finger"}>
         <Image
@@ -16,7 +16,7 @@ function Block({className, withFinger, onAction, blockText, blockColor, animatio
     return (
         <button
             className={`block ${className ?? ""} ${animation? `block_${animation}` : ""}`}
-            onClick={onAction} style={{backgroundColor: blockColor}}>
+            onClick={onAction} style={{backgroundColor: blockColor, opacity: `${!withFinger && isTutorial ? 0.5 : 1}`}}>
             <p className={`block__number`}>{blockText}</p>
             {finger}
         </button>

@@ -24,8 +24,10 @@
   }
 
   &_size-1 {
+    margin: 0 2%;
+    height: 80px;
+    width: 150px;
     font-size: 50px;
-    width: 152px;
   }
 
   &_size-2 {
@@ -66,6 +68,8 @@
 
     width: 96px;
     height: 103px;
+
+    z-index: 5;
 
     pointer-events: none;
   }
