@@ -4,6 +4,7 @@ import {colors, continueText, levels, tutorialData} from "../../constants/consta
 import {createRandomGrid} from "../../utils/createRandomGrid";
 import {rng} from "../../utils/rng";
 import GameTask from "./gameTask";
+import {result} from "../../hooks/resultObject";
 
 export default function Game({className, lvl, setLevel, setPage, isTutorial, onAction}) {
 
@@ -26,9 +27,15 @@ export default function Game({className, lvl, setLevel, setPage, isTutorial, onA
 //TODO: проверить, норм ли реализована проверка на неповторяющиеся числа
 // как правильно передавать пропы level, setLevel, setPage ?
 // менять background-color в зависимости от уровня
+// не отображаются текстовые поля в результатах
+// статистику через setValue передать
 
 export function checkAnswer(blockNumber, value, level, setLevel, setPage) {
+    result.rightAnswers.all += 1;
+
     if (blockNumber === value) {
+        result.totalPoints += level + 1;
+        result.rightAnswers.right += 1;
         if (level === 8) {
             setPage("result");
         } else {
@@ -37,6 +44,9 @@ export function checkAnswer(blockNumber, value, level, setLevel, setPage) {
     } else {
         setLevel(Math.min(Math.max(level - 1, 0), 8));
     }
+
+    result.accuracyAnswers = Number((result.rightAnswers.right / result.rightAnswers.all).toFixed(2)) ?? undefined;
+    console.log(result);
 }
 
 function generateLevelData(lvl, isTutorial) {

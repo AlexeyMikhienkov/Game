@@ -37,8 +37,8 @@ export const results = {
     currentResult: "Текущий результат",
     rightAnswers: "Верных ответов",
     accuracy: "Точность ответов",
-    trainer: "ИП тренажера",
-    createdNeurons: "Создано нейронов"
+ //   trainer: "ИП тренажера",
+ //   createdNeurons: "Создано нейронов"
 };
 
 export const header = {

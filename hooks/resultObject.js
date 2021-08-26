@@ -1,10 +1,10 @@
 export const result = {
     totalPoints: 0,
     rightAnswers: {
-        right: 2,
-        all: 3,
+        right: 0,
+        all: 0,
     },
-    accuracyAnswers: 0.5
+    accuracyAnswers: 1,
 };
 
 export function useResult() {

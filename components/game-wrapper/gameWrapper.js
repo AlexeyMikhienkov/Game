@@ -6,7 +6,8 @@ import Tutorial from "../tutorial/tutorial";
 import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
-
+import {result} from "../../hooks/resultObject";
+/*
 const statistics = {
     currentResult: 42,
     rightAnswers: {
@@ -17,6 +18,8 @@ const statistics = {
     trainer: 29,
     createdNeurons: 1
 };
+
+ */
 
 const pages = ["main", "tutorial", "counter", "game", "result"];
 
@@ -53,7 +56,6 @@ function returnPage(page, setPage, level, setLevel, time) {
         case "main":
             return <Main content={header["base"]}
                          className={`game-wrapper__main`} onAction={() => {
-                console.log("set tutorial");
                 setPage("tutorial");
             }}>
                 <Tutorial className={"main__tutorial"}/>
@@ -65,10 +67,12 @@ function returnPage(page, setPage, level, setLevel, time) {
                 setLevel(0);
                 setPage("main")
             }}>
-                <ResultPanel className={"main__result-panel"} statistics={getStatisticData(statistics)}/>
+                <ResultPanel className={"main__result-panel"} statistics={getStatisticData(result)}/>
             </Main>;
         case "counter":
             return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => setPage("game")}/>;
+        default:
+            return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
     }
 }
 
