@@ -63,7 +63,7 @@ export const levels = [
         columns: 5,
         minValue: 1000,
         maxValue: 10001,
-        animations: ["rotate", "blink", "flick"],
+        animations: [undefined],
     },
     { // level 9
         size: 4,
@@ -71,7 +71,7 @@ export const levels = [
         columns: 5,
         minValue: 1000,
         maxValue: 10001,
-        animations: ["rotate", "blink", "flick"],
+        animations: [undefined],
     },
 ];
 

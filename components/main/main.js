@@ -1,5 +1,5 @@
 import React from "react";
-import {header, buttonText} from "../../constants/copyright";
+import {buttonTextResult, buttonTextStart} from "../../constants/copyright";
 
 export default function Main({className, content, children, onAction, modificator, onRepeat}) {
 
@@ -8,7 +8,8 @@ export default function Main({className, content, children, onAction, modificato
             <Header content={content}/>
             {children}
             <div className={"main__button-wrapper"}>
-                <button className={"main__button"} onClick={modificator ? onRepeat : onAction}>{buttonText}</button>
+                <button className={"main__button"}
+                        onClick={modificator ? onRepeat : onAction}>{modificator ? buttonTextResult : buttonTextStart}</button>
             </div>
         </div>
     )

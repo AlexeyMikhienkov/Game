@@ -6,20 +6,11 @@ import Tutorial from "../tutorial/tutorial";
 import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
-import {result} from "../../hooks/resultObject";
-/*
-const statistics = {
-    currentResult: 42,
-    rightAnswers: {
-        right: 1,
-        all: 1
-    },
-    accuracy: '100%',
-    trainer: 29,
-    createdNeurons: 1
-};
+import {result, clearResult} from "../../hooks/resultObject";
 
- */
+//TODO: как правильно передавать пропы level, setLevel, setPage ?
+// менять background-color в зависимости от уровня
+// изменить способ задания статистики
 
 const pages = ["main", "tutorial", "counter", "game", "result"];
 
@@ -48,6 +39,7 @@ function returnPage(page, setPage, level, setLevel, time) {
 
     switch (page) {
         case "tutorial":
+            clearResult();
             return <Game className={"game-wrapper__game"} isTutorial={true} lvl={level}
                          onAction={() => setPage("counter")}/>;
         case "game":
@@ -72,7 +64,7 @@ function returnPage(page, setPage, level, setLevel, time) {
         case "counter":
             return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => setPage("game")}/>;
         default:
-            return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
+           return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
     }
 }
 

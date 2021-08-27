@@ -34,11 +34,9 @@ export const elementInfo = {
 };
 
 export const results = {
-    currentResult: "Текущий результат",
+    totalPoints: "Текущий результат",
     rightAnswers: "Верных ответов",
-    accuracy: "Точность ответов",
- //   trainer: "ИП тренажера",
- //   createdNeurons: "Создано нейронов"
+    accuracyAnswers: "Точность ответов",
 };
 
 export const header = {
@@ -51,6 +49,7 @@ export const header = {
     }
 };
 
-export const buttonText = "ДАЛЕЕ";
+export const buttonTextStart = "ДАЛЕЕ";
+export const buttonTextResult = "ЕЩЕ РАЗ";
 
 export const description = "Найдите указанное число:";
