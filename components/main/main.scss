@@ -103,6 +103,10 @@ body {
     color: #ffffff;
     background: #6039aa;
     font: 16px "Open Sans", sans-serif;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__button:hover {

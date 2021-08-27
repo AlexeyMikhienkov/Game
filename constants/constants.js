@@ -98,3 +98,5 @@ export const tutorialData = {
     grid: tutorialGrid,
     size: 1
 };
+
+export const time = 3;

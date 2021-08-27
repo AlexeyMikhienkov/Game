@@ -7,13 +7,19 @@ import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
 import {result, clearResult} from "../../hooks/resultObject";
+import {time} from "../../constants/constants";
 
-//TODO: как правильно передавать пропы level, setLevel, setPage ?
-// менять background-color в зависимости от уровня
-// изменить способ задания статистики
-// Реализовать добавление очков в зависимости от бонуса
-// Галочка или крестик в зависимости от результата ответа
-// Нельзя неправильно ответить на 1 урв
+// bug:
+// TODO: Нельзя неправильно ответить на 1 уровне!!
+
+// add
+// TODO: Реализовать добавление очков в зависимости от бонуса
+//  Галочка или крестик в зависимости от результата ответа
+
+// change
+// TODO: Переделать все прокинутые сеттеры (логику передать через колбэки)
+//  Изменить способ задания статистики (хук вынесется в компонент Game рядом с useEffect)
+//  Вынести логику из блока
 
 export default function GameWrapper({className}) {
     /*
@@ -23,8 +29,6 @@ export default function GameWrapper({className}) {
     4. game
     5. result
      */
-
-    const time = 3;
 
     const [page, setPage] = useState("main");
     const [level, setLevel] = useState(0);
@@ -45,10 +49,8 @@ function returnPage(page, setPage, level, setLevel, time) {
                          onAction={() => setPage("counter")}/>;
         case "game":
             return (
-                <>
                     <Game className={"game-wrapper__game"} isTutorial={false} lvl={level} setLevel={setLevel}
                           setPage={setPage}/>
-                </>
             );
         case "main":
             return <Main content={header["base"]}

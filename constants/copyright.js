@@ -32,20 +32,11 @@ export const header = {
     }
 };
 
-export const elementsText = {
-    time: {
-        title: "ВРЕМЯ",
-        subtitle: "00:00"
-    },
-    level: {
-        title: "УРОВЕНЬ",
-        subtitle: "-9"
-    },
-    points: {
-        title: "ОЧКИ",
-        subtitle: "0"
-    }
-};
+export const elementsTitle = [
+    {value: "ВРЕМЯ"},
+    {value: "УРОВЕНЬ"},
+    {value: "ОЧКИ"}
+];
 
 export const bonus = "БОНУС";
 
