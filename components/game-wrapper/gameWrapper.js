@@ -11,8 +11,9 @@ import {result, clearResult} from "../../hooks/resultObject";
 //TODO: как правильно передавать пропы level, setLevel, setPage ?
 // менять background-color в зависимости от уровня
 // изменить способ задания статистики
-
-const pages = ["main", "tutorial", "counter", "game", "result"];
+// Реализовать добавление очков в зависимости от бонуса
+// Галочка или крестик в зависимости от результата ответа
+// Нельзя неправильно ответить на 1 урв
 
 export default function GameWrapper({className}) {
     /*
@@ -43,8 +44,12 @@ function returnPage(page, setPage, level, setLevel, time) {
             return <Game className={"game-wrapper__game"} isTutorial={true} lvl={level}
                          onAction={() => setPage("counter")}/>;
         case "game":
-            return <Game className={"game-wrapper__game"} isTutorial={false} lvl={level} setLevel={setLevel}
-                         setPage={setPage}/>;
+            return (
+                <>
+                    <Game className={"game-wrapper__game"} isTutorial={false} lvl={level} setLevel={setLevel}
+                          setPage={setPage}/>
+                </>
+            );
         case "main":
             return <Main content={header["base"]}
                          className={`game-wrapper__main`} onAction={() => {
@@ -64,7 +69,7 @@ function returnPage(page, setPage, level, setLevel, time) {
         case "counter":
             return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => setPage("game")}/>;
         default:
-           return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
+            return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
     }
 }
 

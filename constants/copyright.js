@@ -16,23 +16,6 @@ export const tutorial = {
     ]
 };
 
-export const elementInfo = {
-    items: [
-        {
-            title: "Время",
-            subtitle: "00:50"
-        },
-        {
-            title: "Уровень",
-            subtitle: "1-9"
-        },
-        {
-            title: "Очки",
-            subtitle: "0"
-        },
-    ]
-};
-
 export const results = {
     totalPoints: "Текущий результат",
     rightAnswers: "Верных ответов",
@@ -48,6 +31,23 @@ export const header = {
         title: "Ваши результаты",
     }
 };
+
+export const elementsText = {
+    time: {
+        title: "ВРЕМЯ",
+        subtitle: "00:00"
+    },
+    level: {
+        title: "УРОВЕНЬ",
+        subtitle: "-9"
+    },
+    points: {
+        title: "ОЧКИ",
+        subtitle: "0"
+    }
+};
+
+export const bonus = "БОНУС";
 
 export const buttonTextStart = "ДАЛЕЕ";
 export const buttonTextResult = "ЕЩЕ РАЗ";

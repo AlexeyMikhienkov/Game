@@ -33,6 +33,7 @@ body {
   }
 
   &__game {
+    position: relative;
     margin: 0 auto;
 
     @include size(632px, 528px);

@@ -2,7 +2,6 @@ import React from "react";
 import ResultItem from "./resultItem";
 
 export default function ResultPanel({className, statistics}) {
-    console.log("statistics", statistics);
     return (
         <div className={`result-panel ${className ?? ""}`}>
             <ul className={"result-panel__items"}>
@@ -13,7 +12,6 @@ export default function ResultPanel({className, statistics}) {
 }
 
 function ResultItems({values}) {
-    console.log("values", values);
     return values.map(({text, value}, index) => {
         return <ResultItem key={index} description={text} value={value}/>
     })
