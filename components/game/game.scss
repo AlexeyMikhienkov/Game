@@ -80,4 +80,13 @@
     top: 0;
     right: 0;
   }
+
+  &__image {
+//    position: relative;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+
+    //background-color: none;
+  }
 }

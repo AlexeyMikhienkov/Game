@@ -1,19 +1,23 @@
 import Grid from "../grid/grid";
 import React, {useEffect, useState} from "react";
-import {colors, continueText, levels, tutorialData} from "../../constants/constants";
+import {colors, continueText, fingerParams, levels, tutorialData} from "../../constants/constants";
 import {createRandomGrid} from "../../utils/createRandomGrid";
 import {rng} from "../../utils/rng";
 import GameTask from "./gameTask";
 import {useResult} from "../../hooks/resultObject";
 import Info from "../info/info";
+import Image from "next/image";
 
 export default function Game({className, isTutorial, onAction, onChangePage}) {
     const [level, setLevel] = useState(0);
     const [result, setResult] = useResult();
     const [data, setData] = useState(generateLevelData(level, isTutorial));
     const [amount, setAmount] = useState(0);
+    const [animation, setAnimation] = useState(null);
 
     const {grid, color, size} = data;
+    const rightImgSrc = "/images/right_answer.jfif";
+    const wrongImgSrc = "/images/wrong_answer.jfif";
 
     const value = isTutorial ? tutorialData.value : generateTaskValue(grid);
 
@@ -23,14 +27,20 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
         setData(generateLevelData(level, isTutorial));
     }, [amount]);
 
+    useEffect(() => {
+
+    }, [animation]);
+
     function checkAnswer(blockNumber, value, res) {
         if (blockNumber === value) {
+            setAnimation("right");
             res.totalPoints = res.totalPoints + (level + 1) * res.combo;
             res.all = res.all + 1;
             res.right = res.right + 1;
             res.combo = Math.min(Math.max(res.combo + 1, 1), 5);
             level === 8 ? onChangePage("result") : setLevel(Math.min(Math.max(level + 1, 0), 8));
         } else {
+            setAnimation("wrong");
             res.all = res.all + 1;
             console.log("before", res.combo);
             res.combo = Math.min(Math.max(res.combo - 1, 1), 5);
@@ -52,6 +62,9 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
                       setResult.updateResult(totalPoints, right, all, combo);
                       setAmount(all);
                   }}/>
+            {animation ?
+                <img className src={`${animation === "right" ? rightImgSrc : wrongImgSrc}`}
+                       alt={`Ответ ${animation === "right" ? "верный" : "неверный"}`}/> : null}
             {isTutorial ? <p className={"game__continue"}>{continueText}</p> : null}
         </div>
     )
