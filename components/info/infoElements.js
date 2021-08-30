@@ -12,11 +12,11 @@ export default function InfoElements({level}) {
 
 function addSubtitle(title, level) {
     switch (title) {
-        case elementsTitle.level:
+        case "УРОВЕНЬ":
             return `${level + 1}-9`;
-        case elementsTitle.points:
+        case "ОЧКИ":
             return result.totalPoints;
-        default:
+        case "ВРЕМЯ":
             return "00:00";
     }
 }

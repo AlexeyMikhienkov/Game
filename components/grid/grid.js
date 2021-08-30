@@ -2,14 +2,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import Block from "../block/block";
 
-function Grid({className, grid, size, value, isTutorial, level, setLevel, setPage}) {
+function Grid({className, grid, size, value, isTutorial, onCheckAnswer}) {
 
     const field = grid.map((arr, index) => {
         const columns = arr.map(({number, color, animation, withFinger}, colIndex) => {
             return (
                 <Block className={`grid__block block_size-${size}`} key={colIndex} withFinger={withFinger}
                        isTutorial={isTutorial} value={value} blockText={number} blockColor={color}
-                       animation={animation} level={level} setLevel={setLevel} setPage={setPage}/>
+                       animation={animation} onCheckAnswer={onCheckAnswer}/>
             )
         });
         return (

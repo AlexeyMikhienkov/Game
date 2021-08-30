@@ -10,23 +10,25 @@ export const result = {
 export function useResult() {
     const {totalPoints, rightAnswers: {right, all}, accuracyAnswers} = result;
     return [{totalPoints, right, all, accuracyAnswers}, {setTotalPoints, updateResult, setRightAnswers}];
-}
 
-function updateResult({totalPoints, rightAnswers: {right, all}, accuracyAnswers}) {
-    result.totalPoints = totalPoints;
-    result.rightAnswers.right = right;
-    result.rightAnswers.all = all;
-    result.accuracyAnswers = accuracyAnswers;
-}
+    function updateResult(totalPoints, right, all) {
+        setTotalPoints(totalPoints);
+        setRightAnswers(right, all);
+        setAccuracy(right, all)
+    }
 
-function setTotalPoints(value) {
-    result.totalPoints = value;
-}
+    function setTotalPoints(value) {
+        result.totalPoints = value;
+    }
 
-function setRightAnswers(right, all) {
-    const {rightAnswers} = result;
-    rightAnswers.right = right ?? rightAnswers.right;
-    rightAnswers.all = all ?? rightAnswers.all;
+    function setRightAnswers(right, all) {
+        result.rightAnswers.right = right;
+        result.rightAnswers.all = all;
+    }
+
+    function setAccuracy(right, all) {
+        result.accuracyAnswers = Number((right / all).toFixed(2)) ?? undefined;
+    }
 }
 
 export function clearResult() {

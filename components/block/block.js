@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
-import {checkAnswer} from "../game/game";
+import {fingerParams} from "../../constants/constants";
 
-function Block({className, withFinger, isTutorial, value, blockText, blockColor, animation, level, setLevel, setPage}) {
+function Block({className, withFinger, isTutorial, value, blockText, blockColor, animation, onCheckAnswer}) {
 
     const finger = withFinger ? (<div className={"block__finger"}>
         <Image
             src={"/images/finger.svg"}
             alt={"Палец-указатель на блок"}
-            width={96}
-            height={103}
+            width={fingerParams.width}
+            height={fingerParams.height}
         />
     </div>) : null;
 
@@ -18,7 +18,8 @@ function Block({className, withFinger, isTutorial, value, blockText, blockColor,
         <button
             className={`block ${className ?? ""} ${animation ? `block_${animation}` : ""}`}
             onClick={() => {
-                if (!isTutorial) checkAnswer(blockText, value, level, setLevel, setPage)
+                if (!isTutorial)
+                    onCheckAnswer(blockText, value);
             }} style={{backgroundColor: blockColor, opacity: `${!withFinger && isTutorial ? 0.5 : 1}`}}>
             <p className={`block__number`}>{blockText}</p>
             {finger}

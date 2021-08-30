@@ -100,3 +100,8 @@ export const tutorialData = {
 };
 
 export const time = 3;
+
+export const fingerParams = {
+    width: 96,
+    height: 103
+};

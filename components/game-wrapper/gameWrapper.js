@@ -1,12 +1,12 @@
 import Game from "../game/game";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Main from "../main/main";
 import {header} from "../../constants/copyright";
 import Tutorial from "../tutorial/tutorial";
 import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
-import {result, clearResult} from "../../hooks/resultObject";
+import {clearResult, result} from "../../hooks/resultObject";
 import {time} from "../../constants/constants";
 
 // bug:
@@ -31,31 +31,32 @@ export default function GameWrapper({className}) {
      */
 
     const [page, setPage] = useState("main");
-    const [level, setLevel] = useState(0);
+
+    function onChangePage(page) {
+        return setPage(page);
+    }
 
     return (
         <div className={className ?? ""}>
-            {returnPage(page, setPage, level, setLevel, time)}
+            {returnPage(page, onChangePage, time)}
         </div>
     )
 }
 
-function returnPage(page, setPage, level, setLevel, time) {
+function returnPage(page, onChangePage, time) {
 
     switch (page) {
         case "tutorial":
-            clearResult();
-            return <Game className={"game-wrapper__game"} isTutorial={true} lvl={level}
-                         onAction={() => setPage("counter")}/>;
+            //      clearResult();
+            return <Game className={"game-wrapper__game"} isTutorial={true} onAction={() => onChangePage("counter")}/>;
         case "game":
             return (
-                    <Game className={"game-wrapper__game"} isTutorial={false} lvl={level} setLevel={setLevel}
-                          setPage={setPage}/>
+                <Game className={"game-wrapper__game"} isTutorial={false} onChangePage={onChangePage}/>
             );
         case "main":
             return <Main content={header["base"]}
                          className={`game-wrapper__main`} onAction={() => {
-                setPage("tutorial");
+                onChangePage("tutorial");
             }}>
                 <Tutorial className={"main__tutorial"}/>
             </Main>;
@@ -63,64 +64,15 @@ function returnPage(page, setPage, level, setLevel, time) {
             return <Main content={header["result"]}
                          className={`game-wrapper__main game-wrapper__main_result`}
                          modificator={"result"} onRepeat={() => {
-                setLevel(0);
-                setPage("main")
+                onChangePage("main");
+                clearResult();
             }}>
                 <ResultPanel className={"main__result-panel"} statistics={getStatisticData(result)}/>
             </Main>;
         case "counter":
-            return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => setPage("game")}/>;
+            return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => onChangePage("game")}/>;
         default:
             return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
     }
 }
-
-/*
-main / result:
-
-    return (
-        <div className={className ?? ""}>
-            <Main content={header[isResult?"result":"base"]} className={`game-wrapper__main ${isResult ? "game-wrapper__main_result" : ""}`}
-                  modificator={isResult && "result"} onAction={() => setResult(result => !result)}>
-                {isResult ?
-                    <ResultPanel className={"main__result-panel"} statistics={getStatisticData(statistics)}/> :
-                    <Tutorial className={"main__tutorial"}/>}
-            </Main>
-        </div>
-    )
-
-tutorial / game:
-
-    let level = 0;
-    level = Math.min(Math.max(level, 0), 8);
-
-    return (
-        <div className={className ?? ""}>
-            <Game className={"game-wrapper__game"} lvl={level} isTutorial={true}/>
-        </div>
-    )
-
-counter:
-
-    const [time, setTime] = useState(10);
-    const [isReset, setIsReset] = useState(false);
-
-    function handleClick() {
-        setTime(20);
-    }
-
-    function handleResetClick() {
-        setIsReset(true);
-    }
-
-    return (
-        <>
-            <button style={{zIndex: 100, background: "red"}} onClick={() => handleClick()}>Кнопка</button>
-            <button style={{zIndex: 100, background: "yellow"}} onClick={() => handleResetClick()}>RESET</button>
-            <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => console.log("timeout")}
-                     isReset={isReset} afterReset={() => setIsReset(false)}/>
-        </>
-    )
- */
-
 
