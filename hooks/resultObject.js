@@ -5,16 +5,18 @@ export const result = {
         all: 0,
     },
     accuracyAnswers: 1,
+    combo: 1
 };
 
 export function useResult() {
-    const {totalPoints, rightAnswers: {right, all}, accuracyAnswers} = result;
-    return [{totalPoints, right, all, accuracyAnswers}, {setTotalPoints, updateResult, setRightAnswers}];
+    const {totalPoints, rightAnswers: {right, all}, accuracyAnswers, combo} = result;
+    return [{totalPoints, right, all, accuracyAnswers, combo}, {setTotalPoints, updateResult, setRightAnswers, setCombo}];
 
-    function updateResult(totalPoints, right, all) {
+    function updateResult(totalPoints, right, all, combo) {
         setTotalPoints(totalPoints);
         setRightAnswers(right, all);
-        setAccuracy(right, all)
+        setAccuracy(right, all);
+        setCombo(combo);
     }
 
     function setTotalPoints(value) {
@@ -29,6 +31,10 @@ export function useResult() {
     function setAccuracy(right, all) {
         result.accuracyAnswers = Number((right / all).toFixed(2)) ?? undefined;
     }
+
+    function setCombo(value) {
+        result.combo = value;
+    }
 }
 
 export function clearResult() {
@@ -36,4 +42,5 @@ export function clearResult() {
     result.rightAnswers.right = 0;
     result.rightAnswers.all = 0;
     result.accuracyAnswers = 1;
+    result.combo = 1;
 }

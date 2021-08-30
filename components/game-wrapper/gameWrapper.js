@@ -10,7 +10,6 @@ import {clearResult, result} from "../../hooks/resultObject";
 import {time} from "../../constants/constants";
 
 // bug:
-// TODO: Нельзя неправильно ответить на 1 уровне!!
 
 // add
 // TODO: Реализовать добавление очков в зависимости от бонуса
@@ -18,7 +17,6 @@ import {time} from "../../constants/constants";
 
 // change
 // TODO: Переделать все прокинутые сеттеры (логику передать через колбэки)
-//  Изменить способ задания статистики (хук вынесется в компонент Game рядом с useEffect)
 //  Вынести логику из блока
 
 export default function GameWrapper({className}) {

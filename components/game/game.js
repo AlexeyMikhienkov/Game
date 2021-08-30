@@ -25,26 +25,31 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
 
     function checkAnswer(blockNumber, value, res) {
         if (blockNumber === value) {
-            res.totalPoints = res.totalPoints + level + 1;
+            res.totalPoints = res.totalPoints + (level + 1) * res.combo;
             res.all = res.all + 1;
             res.right = res.right + 1;
+            res.combo = Math.min(Math.max(res.combo + 1, 1), 5);
             level === 8 ? onChangePage("result") : setLevel(Math.min(Math.max(level + 1, 0), 8));
         } else {
             res.all = res.all + 1;
+            console.log("before", res.combo);
+            res.combo = Math.min(Math.max(res.combo - 1, 1), 5);
+            console.log("after", res.combo);
             setLevel(Math.min(Math.max(level - 1, 0), 8));
         }
+        console.log(res);
         return res;
     }
 
     return (
         <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} onClick={onAction}
              style={{backgroundColor: color}}>
-            {!isTutorial ? <Info className={"game__info"} level={level}/> : null}
+            {!isTutorial ? <Info className={"game__info"} level={level} mult={result.combo}/> : null}
             <GameTask value={value} color={color}/>
             <Grid className={"game__grid"} grid={grid} size={size} value={value} isTutorial={isTutorial}
                   onCheckAnswer={(block, value) => {
-                      const {totalPoints, right, all} = checkAnswer(block, value, result);
-                      setResult.updateResult(totalPoints, right, all);
+                      const {totalPoints, right, all, combo} = checkAnswer(block, value, result);
+                      setResult.updateResult(totalPoints, right, all, combo);
                       setAmount(all);
                   }}/>
             {isTutorial ? <p className={"game__continue"}>{continueText}</p> : null}

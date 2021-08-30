@@ -13,7 +13,7 @@ export default function ResultPanel({className, statistics}) {
 
 function ResultItems({values}) {
     return values.map(({text, value}, index) => {
-        return <ResultItem key={index} description={text} value={value}/>
+        return <ResultItem key={index} description={text} value={value} />
     })
 }
 
