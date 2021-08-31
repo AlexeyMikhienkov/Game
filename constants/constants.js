@@ -99,7 +99,7 @@ export const tutorialData = {
     size: 1
 };
 
-export const time = 3;
+export const countDown = 3;
 
 export const fingerParams = {
     width: 96,

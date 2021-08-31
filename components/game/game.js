@@ -16,20 +16,15 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
     const [animation, setAnimation] = useState(null);
 
     const {grid, color, size} = data;
-    const rightImgSrc = "/images/right_answer.jfif";
-    const wrongImgSrc = "/images/wrong_answer.jfif";
+    const rightImgSrc = "/images/right_answer.png";
+    const wrongImgSrc = "/images/wrong_answer.png";
 
     const value = isTutorial ? tutorialData.value : generateTaskValue(grid);
 
     useEffect(() => {
-        console.log("render");
-        console.log(result);
+        setTimeout(() => setAnimation(null), 750);
         setData(generateLevelData(level, isTutorial));
     }, [amount]);
-
-    useEffect(() => {
-
-    }, [animation]);
 
     function checkAnswer(blockNumber, value, res) {
         if (blockNumber === value) {
@@ -63,8 +58,10 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
                       setAmount(all);
                   }}/>
             {animation ?
-                <img className src={`${animation === "right" ? rightImgSrc : wrongImgSrc}`}
-                       alt={`Ответ ${animation === "right" ? "верный" : "неверный"}`}/> : null}
+                <img className={"game__image"} src={`${animation === "right" ? rightImgSrc : wrongImgSrc}`}
+                     alt={`Ответ ${animation === "right" ? "верный" : "неверный"}`}/>
+                : null}
+
             {isTutorial ? <p className={"game__continue"}>{continueText}</p> : null}
         </div>
     )

@@ -7,12 +7,12 @@ import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
 import {clearResult, result} from "../../hooks/resultObject";
-import {time} from "../../constants/constants";
+import {countDown} from "../../constants/constants";
 
 // bug:
 
 // add
-// TODO: Галочка или крестик в зависимости от результата ответа
+// TODO: Добавить анимацию галочки и крестика
 //  Игра идет только 1 минуту
 
 // change
@@ -36,16 +36,15 @@ export default function GameWrapper({className}) {
 
     return (
         <div className={className ?? ""}>
-            {returnPage(page, onChangePage, time)}
+            {returnPage(page, onChangePage, countDown)}
         </div>
     )
 }
 
-function returnPage(page, onChangePage, time) {
+function returnPage(page, onChangePage, countDown) {
 
     switch (page) {
         case "tutorial":
-            //      clearResult();
             return <Game className={"game-wrapper__game"} isTutorial={true} onAction={() => onChangePage("counter")}/>;
         case "game":
             return (
@@ -68,7 +67,7 @@ function returnPage(page, onChangePage, time) {
                 <ResultPanel className={"main__result-panel"} statistics={getStatisticData(result)}/>
             </Main>;
         case "counter":
-            return <Counter className={"game-wrapper__counter"} start={time} onTimeout={() => onChangePage("game")}/>;
+            return <Counter className={"game-wrapper__counter"} start={countDown} onTimeout={() => onChangePage("game")}/>;
         default:
             return <div>ЧТО-ТО ПОШЛО НЕ ТАК..............</div>
     }
