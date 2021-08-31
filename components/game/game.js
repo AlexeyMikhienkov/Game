@@ -6,7 +6,6 @@ import {rng} from "../../utils/rng";
 import GameTask from "./gameTask";
 import {useResult} from "../../hooks/resultObject";
 import Info from "../info/info";
-import Image from "next/image";
 
 export default function Game({className, isTutorial, onAction, onChangePage}) {
     const [level, setLevel] = useState(0);
@@ -49,7 +48,7 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
     return (
         <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} onClick={onAction}
              style={{backgroundColor: color}}>
-            {!isTutorial ? <Info className={"game__info"} level={level} mult={result.combo}/> : null}
+            {!isTutorial ? <Info className={"game__info"} level={level} mult={result.combo} time={"01:00"}/> : null}
             <GameTask value={value} color={color}/>
             <Grid className={"game__grid"} grid={grid} size={size} value={value} isTutorial={isTutorial}
                   onCheckAnswer={(block, value) => {

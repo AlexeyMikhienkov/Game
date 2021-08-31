@@ -9,7 +9,6 @@ export default function Multiply({className, mult}) {
         elems.push(elem);
     }
 
-
     return (
         <div className={className ?? ""}>
             {elems}

@@ -33,9 +33,18 @@ export const header = {
 };
 
 export const elementsTitle = [
-    {value: "ВРЕМЯ"},
-    {value: "УРОВЕНЬ"},
-    {value: "ОЧКИ"}
+    {
+        type: "time",
+        title: "ВРЕМЯ"
+    },
+    {
+        type: "level",
+        title: "УРОВЕНЬ"
+    },
+    {
+        type: "points",
+        title: "ОЧКИ"
+    }
 ];
 
 export const bonus = "БОНУС";

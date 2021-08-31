@@ -7,7 +7,7 @@ import ResultPanel from "../result-panel/resultPanel";
 import {getStatisticData} from "../../utils/statisticsHelpers";
 import Counter from "../counter/counter";
 import {clearResult, result} from "../../hooks/resultObject";
-import {countDown} from "../../constants/constants";
+import {countDown, time} from "../../constants/constants";
 
 // bug:
 
