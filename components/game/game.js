@@ -7,6 +7,7 @@ import GameTask from "./gameTask";
 import {useResult} from "../../hooks/resultObject";
 import Info from "../info/info";
 import {useTimer} from "../../hooks/timerObject";
+import {toMMSS} from "../../utils/toMMSS";
 
 export default function Game({className, isTutorial, onAction, onChangePage}) {
     const [level, setLevel] = useState(0);
@@ -59,7 +60,7 @@ export default function Game({className, isTutorial, onAction, onChangePage}) {
         <div className={`game ${isTutorial ? "game_tutorial" : ""} ${className ?? ""}`} onClick={onAction}
              style={{backgroundColor: color}}>
             {!isTutorial ? <Info className={"game__info"} level={level} mult={result.combo}
-                                 time={`${Math.floor(timer / 60)}:${timer % 60}`}/> : null}
+                                 time={toMMSS(timer)}/> : null}
             <GameTask value={value} color={color}/>
             <Grid className={"game__grid"} grid={grid} size={size} value={value} isTutorial={isTutorial}
                   onCheckAnswer={(block, value) => {
